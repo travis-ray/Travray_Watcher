@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="travray" translate="label" sortOrder="10">
+            <label>Travray</label>
+        </tab>
+        <section id="travray_watcher" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="0">
+            <class>separator-top</class>
+            <label>Watcher</label>
+            <tab>travray</tab>
+            <resource>Travray_Watcher::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="email_to_alert" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email address to send alerts to.</label>
+                    <validate>validate-email required-entry</validate>
+                </field>
+                <field id="email_from" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email address to send alerts from.</label>
+                    <validate>validate-email required-entry</validate>
+                </field>
+                <field id="email_from_name" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Name to send alerts from.</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            <group id="product_views" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="watch_product_views" translate="label" type="select" showInDefault="1" canRestore="1">
+                    <label>Watch Product Views</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="max_product_views" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Max Product Views allowed in a day</label>
+                    <validate>validate-number required-entry</validate>
+                    <comment>After this many product views the customer will get an error if they try to view more.</comment>
+                </field>
+                <field id="product_views_to_email" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product Views in a day before an email is sent</label>
+                    <validate>validate-number required-entry</validate>
+                    <comment>After this many product views an email will be sent to alert Royal Bearing.</comment>
+                </field>
+                <field id="product_views_subject" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Subject for product views email.</label>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            <group id="logins" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <field id="watch_logins" translate="label" type="select" showInDefault="1" canRestore="1">
+                    <label>Watch Logins</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="login_from_different_location_subject" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Subject for email when a customer logs in from a different city.</label>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="maxmind_userid" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Userid for Maxmind web service</label>
+                    <validate>required-entry</validate>
+                    <comment>Sign up for a free trial at: https://www.maxmind.com/en/request-service-trial?service_geoip=1</comment>
+                </field>
+                <field id="maxmind_license_key" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>License key for Maxmind web service</label>
+                    <validate>required-entry</validate>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>
